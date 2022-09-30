@@ -1,1 +1,45 @@
-123
+# Git : 版本控制性統 
+# GitHub : 雲端版本控制服務平台
+# Git Bash : Windows 的 Git 模擬器
+# Git Bash 下載
+# https://git-scm.com/downloads
+# 建立 Git 資料夾
+# 進入資料夾，滑鼠右鍵，點選 "Git Bash Here"
+
+$ git init  # Git 初始化，建立 Repository (存儲庫)
+$ git status  # 顯示 Git 目前狀態
+$ git add <檔名>  # 將檔案加入 Git 暫存區  # 等同 VS Code 的 "+"
+
+( git add . 加入全部檔案)
+
+$ git reset -- <檔名> # 取消 git add  # 等同 VS Code 的 "-"
+$ git checkout -- <檔名>  # 取消檔案變更
+$ git commit -m "<說明文字>"  # 將 Git 暫存區的檔案 提交 到 Repository  # 等同 VS Code 的 "√ Commit"
+
+( -m 文字編輯器；VI編輯器) , 按鍵 i : 從命令模式切換到插入模式 , 按鍵 :q : 不儲存並退出 , 按鍵 :w : 儲存但不退出 , 按鍵 :wq : 儲存並退出
+
+$ git reset --hard HEAD~<次數>  # 回到上<次數>次 的 commit  # 等同 VS Code 的 "更多" -> "Commit" -> "Undo Last Commit"
+$ git log  # 顯示 commit 紀錄
+
+# 登入 GitHub
+# https://github.com/
+# 點擊右上方的 "+"，再點選 "New Repository"
+# 輸入 Repository name，再點選 Private，最後點擊 Create repository
+
+$ git remote add <命名此 Repository> https://github.com/<User name>/<Repository name>.git  #此 Repository 加入 GitHub
+$ git push -u <命名此 Repository> <branch>  # 將 commit 的檔案推送到 GitHub
+
+( -u 將 branch 設為預設 )
+( -f 強制)
+
+$ git clone <GitHub 網址>  # 克隆 GitHub 檔案
+$ git pull  # GitHub 檔案拉到此 Repository
+
+$ git checkout -b <branch 名稱>  # 創建並切換至新 branch  # 等同 VS Code 點擊 左下方<branch> -> + Create new branch
+$ git branch -d <branch 名稱>  # 刪除 branch (但 GitHub 的不會刪除)
+$ git branch -a  # 顯示 GitHub 所有的 branch
+$ git switch <branch 名稱>  # 切換至<branch 名稱>
+$ git rebase <目標 branch>  # 把目前的 branch 移動到<目標 branch>的最新進度
+$ git rebase --continue  # 解決衝突後，繼續 rebase
+
+# GitHub 點擊 "Compare & pull request" or # 點擊 新 branch 的 "Contrubute" -> "Open pull request"
