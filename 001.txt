@@ -43,3 +43,22 @@ $ git rebase <目標 branch>  # 把目前的 branch 移動到<目標 branch>的�
 $ git rebase --continue  # 解決衝突後，繼續 rebase
 
 # GitHub 點擊 "Compare & pull request" or # 點擊 新 branch 的 "Contrubute" -> "Open pull request"
+
+# Jenkins 連接 GitHub URL 發生問題
+# Failed to connect to repository : Command "git ls-remote -h -- https://github.com/Eason0810/001.git HEAD" returned status code 128:
+# 解決 : Jenkins 加入 GitHub 的 Personal access tokens (個人訪問令牌)
+# GitHub -> Settings -> Developer settings -> Personal access token -> Generate new token -> 輸入 Note -> Generate token -> 複製 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
+# Jenkins -> 管理 Jenkins -> 設定系統 -> GitHub -> Credentials 的 "+ Add" 的 Jenkins -> Kind 的 Secret text -> 輸入 Secret -> Add -> Test connection -> 儲存
+
+# 建立 SSH key
+# 開啟 Git Bash
+$ ssh-keygen  # 產生一對 公鑰 & 私鑰
+( Enter passphrase : 可先空白 )
+$ cd /c/Users/a0910/.ssh  # 進入 公私鑰 資料夾
+$ ls -al  # 顯示 資料夾裡的檔案
+$ cat id_rsa.pub  #  顯示 公鑰內容
+$ cat id_rsa  #  顯示 私鑰內容
+
+# GitHub 
+# 個別的 Repository : GitHub -> Settings -> Deploy keys -> Add deploy key -> 輸入 Title , 輸入 Key -> √ Allow write access -> Add key
+# 整個帳號 : GitHub -> Settings -> SSH and GPG key -> New SSH key -> 輸入 Title , 輸入 Key -> √ Allow write access -> Add key
